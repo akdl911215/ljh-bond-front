@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import MainPage from './pages/MainPage/index';
-import LoginPage from './pages/LoginPage/index';
+import MainPage from './pages/MainPage/Index';
+import LoginPage from './pages/LoginPage/Index';
 import Navbar from './components/NavBar';
-import ServicePage from './pages/ServicePage/index';
+import ServicePage from './pages/ServicePage/Index';
 import Footer from './components/Footer';
-import AboutPage from './pages/AboutPage/index';
-import MarketPage from './pages/MarketPage/index';
-import UserPage from './pages/UserPage/index';
+import AboutPage from './pages/AboutPage/Index';
+import MarketPage from './pages/MarketPage/Index';
+import UserPage from './pages/UserPage/Index';
 
 const Layout = () => {
   return(
@@ -32,7 +32,6 @@ const App = () => {
           <Route path='about' element= {<AboutPage />} />
           <Route path='market' element= {<MarketPage />} />
           <Route path='user' element= {<UserPage />} />
-
         </Route>
       </Routes>
     </Router>
