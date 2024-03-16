@@ -1,13 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import MainPage from './pages/MainPage/Index';
-import LoginPage from './pages/LoginPage/Index';
+import MainPage from './pages/MainPage/index';
+import LoginPage from './pages/LoginPage/index';
 import Navbar from './components/NavBar';
-import ServicePage from './pages/ServicePage/Index';
+import ServicePage from './pages/ServicePage/index';
 import Footer from './components/Footer';
-import AboutPage from './pages/AboutPage/Index';
-import MarketPage from './pages/MarketPage/Index';
-import UserPage from './pages/UserPage/Index';
+import AboutPage from './pages/AboutPage/index';
+import MarketPage from './pages/MarketPage/index';
+import UserPage from './pages/UserPage/index';
+import CommunityPage from './pages/CommunityPage';
+
 
 const Layout = () => {
   return(
@@ -31,7 +33,8 @@ const App = () => {
           <Route path='service' element= {<ServicePage />} />
           <Route path='about' element= {<AboutPage />} />
           <Route path='market' element= {<MarketPage />} />
-          <Route path='user' element= {<UserPage />} />
+            <Route path='user' element= {<UserPage />} />
+          <Route path='community' element= {<CommunityPage />} />
         </Route>
       </Routes>
     </Router>
