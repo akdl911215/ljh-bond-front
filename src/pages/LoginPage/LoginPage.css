@@ -1,72 +1,98 @@
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Center the login form horizontally */
+  align-items: center; /* Center the login form vertically */
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 400px; /* Adjust based on your preference for the form's width */
+}
 .login-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 700px;
   padding: 3rem;
-  margin: auto;
+  background-color: #333;
+  color: #fff;
   border-radius: 8px;
-  background-color: #333; /* 어두운 배경색으로 조정 */
-  color: #fff; /* 텍스트 색상을 밝게 조정 */
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* 쉐도잉 강조 */
-  border: 1px solid #fff; /* 경계선 색상을 어두운 배경에 맞게 조정 */
-  box-sizing: border-box;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border: 1px solid #fff;
 }
+
+.form-group, .form-check {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-control, .form-check-input {
+  margin-bottom: 0.5rem;
+}
+
+.btn-login {
+  width: 100%;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold; /* Making text bold */
+}
+
+.sns-signup-buttons {
+  display: flex; /* Change to flex layout */
+  justify-content: space-around; /* Distribute buttons evenly */
+  width: 100%;
+  margin-top: 20px;
+
+}
+
+.sns-signup-buttons .btn {
+  margin: 10px 0;
+  color: #fff;
+  font-size: 24px;
+}
+
+.btn-google {
+  background-color: #ffffff; /* White background for Google button */
+}
+.btn-google:hover {
+  background-color: #f1f1f1; /* Light grey on hover */
+}
+
+.btn-facebook {
+  background-color: #3b5998; /* Facebook button color */
+}
+.btn-facebook:hover {
+  background-color: #2d4373;
+}
+
+.btn-naver {
+  background-color: #2DB400;
+}
+.btn-naver:hover {
+  background-color: #1E7E00;
+}
+
+.btn-kakao {
+  background-color: #FEE500;
+}
+.btn-kakao:hover {
+  background-color: #ECD400;
+}
+
+.login-footer a {
+  color: #fff; /* White color for links */
+  text-decoration: none; /* Remove underline */
+}
+
+.login-footer a:hover {
+  text-decoration: underline; /* Add underline on hover for better UX */
+}
+
+
 
 @media (max-width: 768px) {
-  .login-box {
-    width: 90%;
-    padding: 1rem;
-    margin: 20px;
+  .login-form-container {
+    max-width: 90%;
   }
-}
-
-
-.form-group,
-.form-check {
-  width: 100%; 
-  display: flex;
-  align-items: flex-start; /* Align items to the start */
-  margin-bottom: 1rem; 
-}
-
-
-.form-control,
-.form-check-input {
-  width: 100%; /* Ensure inputs take full width */
-  margin-bottom: 0.5rem; /* Spacing between form elements */
-  margin-left: 1rem;
-  box-sizing: border-box;  /* box-sizing 추가 */
-}
-
-
-.btn-primary {
-  width: 100%; /* 버튼 너비 조정 */
-  border-radius: 4px; /* 버튼 모서리 둥글게 */
-}
-
-.login-footer {
-  margin-top: 1rem; /* 로그인 페이지 하단 여백 추가 */
-  text-align: center;
-}
-
-/* 추가된 스타일 */
-.login-title, .login-subtitle, .form-group label, .login-footer a {
-  color: #ccc; /* 텍스트 색상 조정 */
-}
-.form-check-input {
-  width: 1.25em; /* 체크박스 너비 조정 */
-  height: 1.25em; /* 체크박스 높이 조정 */
-  margin-top: 0; /* 체크박스 상단 마진 제거 (필요한 경우) */
-  margin-right: 0.5rem; /* 체크박스와 라벨 사이의 간격 */
-  vertical-align: middle; /* 수직 방향 가운데 정렬 */
-}
-
-
-.form-check {
-  display: flex; /* 플렉스 박스 레이아웃 적용 */
-}
-.form-check-label {
-  margin-left: 0.5rem; /* 체크박스 라벨 간격 조정 */
-  color: #fff;
 }

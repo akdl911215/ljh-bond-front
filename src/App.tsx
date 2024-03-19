@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
-import MainPage from './pages/MainPage/index';
-import LoginPage from './pages/LoginPage/index';
+import MainPage from './pages/MainPage/MainPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 import Navbar from './components/NavBar';
-import ServicePage from './pages/ServicePage/index';
+import ServicePage from './pages/ServicePage/ServicePage';
 import Footer from './components/Footer';
-import AboutPage from './pages/AboutPage/index';
-import MarketPage from './pages/MarketPage/index';
-import UserPage from './pages/UserPage/index';
-import CommunityPage from './pages/CommunityPage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import MarketPage from './pages/MarketPage/MarketPage';
+import UserPage from './pages/UserPage/UserPage';
+import CommunityPage from './pages/CommunityPage/Community';
 
 
 const Layout = () => {

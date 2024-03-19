@@ -3,18 +3,6 @@ html body {
   background-color: #000; /* Black background */
   color: #fff; /* White text */
 }
-.navbar {
-  background-color: #000; /* Black background */
-  color: white;
-  padding: 10px 20px;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 15px;
-  display: inline-block;
-}
 
 .dashboard-container {
   background-color: #000; /* Black background */
@@ -23,45 +11,66 @@ html body {
 }
 
 .dashboard-container .card {
-  margin-left: auto; /* Centers the card and provides equal left and right margins */
-  margin-right: auto; /* Adjust this to control the card width indirectly by changing the left and right margins */
-  max-width: 90%; /* Adjust the maximum width of the cards */
-  background-color: #333; /* 카드 배경색을 어둡게 조정 */
-  color: #fff; /* 카드 내 텍스트 색상을 밝게 조정 */
-  box-shadow: 
-  0 4px 8px rgba(0, 0, 0, 0.5), /* 어두운 쉐도우 추가 */
-  0 12px 24px rgba(0, 0, 0, 0.5); /* 쉐도우의 범위와 흐림 효과 증가 */
-  border: 1px solid #fff; /* 카드 테두리 색상을 어두운 배경에 맞게 조정 */
-  border-radius: 8px; /* 카드 모서리 둥글게 처리 */
-  padding: 20px; /* 내부 여백 조정 */
-
+  margin: 20px auto; /* Adjust margins for clarity and spacing */
+  max-width: 90%; /* Responsive max-width */
+  background-color: #333; /* Dark background for cards */
+  color: #fff; /* Text color for readability */
+  border: 1px solid #444; /* Slightly lighter border for contrast */
+  border-radius: 8px; /* Rounded corners for modern look */
+  padding: 20px; /* Padding inside cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 12px 24px rgba(0, 0, 0, 0.5); /* Enhanced shadow for depth */
 }
   
+.card-title {
+  font-size: 20px; /* Larger font size for emphasis */
+  color: #ddd; /* Use a standout color for titles */
+}
+
+.card-text {
+  font-size: 14px; /* Smaller than the title for hierarchy */
+  color: #ddd; /* Lighter color for readability */
+  
+}
+
+.card {
+  margin: 30px auto; /* Increase margin for clearer separation */
+  padding: 30px; /* Increase padding for more content space */
+  height: auto; /* Auto height to contain content appropriately */
+}
 
 .card-img-top {
   width: 100%; /* Makes image responsive */
-  height: auto; /* Maintains aspect ratio */
+  border-radius: 8px 8px 0 0; /* Rounded corners at the top */
 }
 
-/* Styles for hover effect on links */
-.nav-link:hover {
-  font-weight: bold;
+.section-title {
+  margin-bottom: 30px; /* Increased bottom margin for section titles */
+  margin-top: 40px;
+  margin-left: 5%;
 }
 
-/* Utility class for positioning elements to the right */
-.mb-3 {
-  position: absolute;
-  right: 0;
+.btn-custom {
+  background-color: #007bff; /* Bootstrap's primary color for buttons */
+  color: #fff;
+  padding: 10px 20px; /* Adequate padding for touch targets */
+  border-radius: 4px; /* Rounded corners for buttons */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Cursor indication for clickable elements */
 }
 
-/* Highlight active navigation link */
-.active {
-  font-weight: bold;
+.btn-custom:hover {
+  background-color: #0056b3; /* Darker shade on hover for interaction feedback */
 }
+
 
 @media (max-width: 768px) {
   .dashboard-container .card {
     margin: 20px 10px; /* Provides smaller margins for smaller devices */
     max-width: 95%; /* Allows cards to use more width on smaller screens */
+  }
+
+  .section-title {
+    margin-bottom: 20px; /* Slightly reduced margin on smaller screens */
+    font-size: 20px; /* Adjusted font size for smaller screens */
   }
 }
