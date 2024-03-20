@@ -1,26 +1,44 @@
+.navbar-dark {
+  background-color: black !important; /* Set the navbar background to black */
+  padding: 0.5rem 1rem; /* Adjust the padding to reduce navbar height */
+  border-bottom: 2px solid white; /* Add a white border line at the bottom */
+  height: 100px;
+}
+
+.navbar-dark .navbar-brand {
+  height: 40px; /* Adjust the logo height */
+}
+
+.navbar-dark .navbar-toggler {
+  padding: 0.25rem 0.5rem; /* Adjust the padding to reduce the size of the toggle */
+  font-size: 1rem; /* Adjust the font size as needed */
+  width: 1em;
+  height: 1em;
+}
+
+.navbar-dark .navbar-toggler-icon {
+  width: 1em;
+  height: 1em;
+  margin-bottom: 10px;
+}
+
 .nav-link {
-  padding: 0 10px; /* Adjust the padding as needed */
-  font-size: 0.9em; /* Reduce the font size; adjust as needed */
-
+  padding: 10px; /* Adjust the padding around the nav links */
+  font-size: 0.8em; /* Adjust the font size of the nav links */
 }
 
-.nav-link:hover {
-  font-weight: bold; /* 마우스 호버 시 볼드 처리 */
+.nav-link:hover,
+.nav-link.active {
+  font-weight: bold; /* Make the text bold on hover and for active link */
 }
 
-.nav-link:click {
-  font-weight: bold; /* 마우스 클릭 시 볼드 처리 */
-}
-
-.mb-3 {
-  position: absolute;
-  right: 0;
-}
-.active {
-  font-weight: bold;
-}
+/* Adjustments for smaller screens */
 @media (max-width: 768px) {
-  .navbar {
-    font-size: 1.5em; /* Adjust based on your preference */
+  .navbar-dark {
+    padding: 0.25rem 1rem; /* Further reduce padding for smaller screens */
+  }
+
+  .navbar-dark .navbar-toggler {
+    font-size: 0.875rem; /* Adjust the font size of the toggle icon for smaller screens */
   }
 }

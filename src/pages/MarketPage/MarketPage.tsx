@@ -37,6 +37,7 @@ const MarketPage = () => {
 
   return (
     <div className='chart-container'>
+      <br />
       <h2>시장 분석</h2>
     <div className='chart'>
     <br />
@@ -47,7 +48,7 @@ const MarketPage = () => {
         </PieChart>
       </ResponsiveContainer>
     </div>
-    <h3>비쥬얼 차트</h3>
+    <h2>비쥬얼 차트</h2>
     <div className='chart'>
     <br />
     <ResponsiveContainer width="100%" height={300}>
@@ -62,7 +63,7 @@ const MarketPage = () => {
     </div>
 
     {/* 수요자 랭크 섹션 */}
-    <h3>수요자 랭크</h3>
+    <h2>수요자 랭크</h2>
     <div className="info-section">
       <ul>
         {demandRankData.map((rank, index) => (
@@ -71,7 +72,7 @@ const MarketPage = () => {
       </ul>
     </div>
     {/* 현재 시장 채권 정보 섹션 */}
-    <h3>현재 시장 채권 정보</h3>
+    <h2>현재 시장 채권 정보</h2>
     <div className="info-section">
       <ul>
         {bondData.map((bond, index) => (

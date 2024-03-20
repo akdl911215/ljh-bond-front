@@ -1,0 +1,63 @@
+.create-post-page {
+  padding: 20px;
+  max-width: 800px; /* Set a max width for larger screens */
+  margin: auto; /* Center the form on the page */
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.form-group textarea {
+  height: 150px; /* Adjustable based on preference */
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .create-post-page {
+    padding: 10px;
+    max-width: 100%; /* Allow the form to use more width on smaller screens */
+  }
+
+  .form-group input,
+  .form-group textarea,
+  button[type="submit"] {
+    padding: 8px; /* Slightly reduce padding on smaller screens for more space */
+  }
+
+  .form-group textarea {
+    height: 120px; /* Adjust height for smaller screens */
+  }
+}

@@ -7,7 +7,6 @@ html body {
 .dashboard-container {
   background-color: #000; /* Black background */
   color: #fff; /* White text */
-  padding: 20px;
 }
 
 .dashboard-container .card {
@@ -22,7 +21,7 @@ html body {
 }
   
 .card-title {
-  font-size: 20px; /* Larger font size for emphasis */
+  font-size: 22px; /* Larger font size for emphasis */
   color: #ddd; /* Use a standout color for titles */
 }
 
@@ -32,20 +31,14 @@ html body {
   
 }
 
-.card {
-  margin: 30px auto; /* Increase margin for clearer separation */
-  padding: 30px; /* Increase padding for more content space */
-  height: auto; /* Auto height to contain content appropriately */
-}
-
 .card-img-top {
   width: 100%; /* Makes image responsive */
   border-radius: 8px 8px 0 0; /* Rounded corners at the top */
 }
 
 .section-title {
-  margin-bottom: 30px; /* Increased bottom margin for section titles */
-  margin-top: 40px;
+  margin-bottom: 20px; /* Increased bottom margin for section titles */
+  margin-top: 100px;
   margin-left: 5%;
 }
 
@@ -71,6 +64,5 @@ html body {
 
   .section-title {
     margin-bottom: 20px; /* Slightly reduced margin on smaller screens */
-    font-size: 20px; /* Adjusted font size for smaller screens */
   }
 }

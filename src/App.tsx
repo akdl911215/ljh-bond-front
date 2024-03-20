@@ -8,7 +8,9 @@ import Footer from './components/Footer';
 import AboutPage from './pages/AboutPage/AboutPage';
 import MarketPage from './pages/MarketPage/MarketPage';
 import UserPage from './pages/UserPage/UserPage';
-import CommunityPage from './pages/CommunityPage/Community';
+import CommunityPage from './pages/CommunityPage/CommunityPage';
+import CreatePostPage from './pages/CommunityPage/CreatePostPage';
+import PostDetailPage from './pages/CommunityPage/PostDetailPage';
 
 
 const Layout = () => {
@@ -33,8 +35,11 @@ const App = () => {
           <Route path='service' element= {<ServicePage />} />
           <Route path='about' element= {<AboutPage />} />
           <Route path='market' element= {<MarketPage />} />
-            <Route path='user' element= {<UserPage />} />
+          <Route path='user' element= {<UserPage />} />
           <Route path='community' element= {<CommunityPage />} />
+          <Route path="/create-post" element={<CreatePostPage />} />
+          <Route path="/post/:id" element={<PostDetailPage />} /> 
+
         </Route>
       </Routes>
     </Router>

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px auto;
+  margin: 40px auto;
   padding: 0 5%;
   background-color: #2c3e50; /* 어두운 테마의 배경색으로 변경 */
   color: #ecf0f1; /* 밝은 글자색으로 변경 */
@@ -12,16 +12,24 @@
 .chart, .info-section {
   width: 100%;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  margin: 20px 0;
-  padding: 20px;
+  margin: 40px 0;
+  padding: 30px;
   background-color: #34495e; /* 차트 및 정보 섹션의 배경색 변경 */
-  border-radius: 8px;
+  border-radius: 10px;
   color: #ecf0f1; /* 차트 및 정보 섹션의 글자색 변경 */
+}
+
+.chart .info-section > h2 {
+  margin-top: 0;
+  margin-bottom: 20px; /* Increase bottom margin for headings */
+  color: #ecf0f1; /* Ensure headings are the same light color for consistency */
 }
 
 
 @media (max-width: 768px) {
   .chart, .info-section {
     flex-basis: 100%; /* 모바일 화면에서 차트의 너비를 100%로 조정 */
+    margin: 30px 0; /* Slightly smaller margin for smaller screens */
+    padding: 20px; /* Adjust padding for smaller screens */
   }
 }
