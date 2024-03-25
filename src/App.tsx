@@ -11,6 +11,10 @@ import UserPage from './pages/UserPage/UserPage';
 import CommunityPage from './pages/CommunityPage/CommunityPage';
 import CreatePostPage from './pages/CommunityPage/CreatePostPage';
 import PostDetailPage from './pages/CommunityPage/PostDetailPage';
+import InvestmentInfoPage from './pages/InvestPage/InvestmentInfoPage';
+import InvestPage from './pages/InvestPage/InvestPage';
+import FinancialKnowledgePage from './pages/InvestPage/FinancialKnowledgePage';
+import YouTubePage from './pages/InvestPage/YouTubePage';
 
 
 const Layout = () => {
@@ -39,6 +43,10 @@ const App = () => {
           <Route path='community' element= {<CommunityPage />} />
           <Route path="/create-post" element={<CreatePostPage />} />
           <Route path="/post/:id" element={<PostDetailPage />} /> 
+          <Route path='/invest' element= {<InvestPage />} />
+          <Route path="/investment" element={<InvestmentInfoPage />} />
+          <Route path="/financial-knowledge" element={<FinancialKnowledgePage />} />
+          <Route path="/youtube" element={<YouTubePage />} />
 
         </Route>
       </Routes>

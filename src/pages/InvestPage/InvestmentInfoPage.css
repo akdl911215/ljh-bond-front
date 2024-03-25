@@ -1,0 +1,42 @@
+.investment-info-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 5px;
+}
+
+.investment-info-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.articles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.article {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.article h2 {
+  margin-top: 0;
+}
+
+.article p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.article span {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #666;
+}

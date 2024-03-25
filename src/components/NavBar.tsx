@@ -49,7 +49,8 @@ const NavBar = () => {
               <NavLink to="/market" className={`nav-link ${activeLink === 'market' ? 'active' : ''}`} onClick={() => handleClick('market')}>시장</NavLink>
               <NavLink to="/login" className={`nav-link ${activeLink === 'login' ? 'active' : ''}`} onClick={() => handleClick('login')}>로그인</NavLink>
               <NavLink to="/user" className={`nav-link ${activeLink === 'user' ? 'active' : ''}`} onClick={() => handleClick('user')}>유저</NavLink>
-              <NavLink to="/community" className={`nav-link ${activeLink === 'community' ? 'active' : ''}`} onClick={() => handleClick('user')}>커뮤니티</NavLink>
+              <NavLink to="/community" className={`nav-link ${activeLink === 'community' ? 'active' : ''}`} onClick={() => handleClick('community')}>커뮤니티</NavLink>
+              <NavLink to="/invest" className={`nav-link ${activeLink === 'invest' ? 'active' : ''}`} onClick={() => handleClick('invest')}>투자정보</NavLink>
               <NavDropdown title="회사소개" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">000소개</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">000리포트</NavDropdown.Item>

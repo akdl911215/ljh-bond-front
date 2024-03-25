@@ -55,7 +55,7 @@ const CommunityPage: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {posts.map(post => (
+          {currentPosts.map(post => (
             <tr key={post.id} onClick={() => navigate(`/post/${post.id}`)}>
               <td>{post.title}</td>
               <td>{post.author}</td>
