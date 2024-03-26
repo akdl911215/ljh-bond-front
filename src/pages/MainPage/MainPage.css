@@ -41,6 +41,24 @@ html body {
   margin-top: 100px;
   margin-left: 5%;
 }
+.article-container {
+  margin-bottom: 20px; /* Adjust the bottom margin to create more space between articles */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  display: block; /* Ensure the article container behaves as a block-level element */
+}
+
+.article-container:hover {
+  background-color: #444; /* Darken the background color on hover */
+}
+
+.article-container a {
+  color: #ddd; /* Use a standout color for links */
+  text-decoration: none; /* Remove the underline from links */
+}
+
+.article-container a:hover {
+  color: #fff; /* Optional: Change link color on hover for better visibility */
+}
 
 .btn-custom {
   background-color: #007bff; /* Bootstrap's primary color for buttons */

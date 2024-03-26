@@ -1,7 +1,7 @@
 // InvestorCard.tsx
 import React from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
-import { User, Investment } from './UserData';
+import { User, Investment, isInvestor } from './UserData';
 import { COLORS } from './PieChartComponent';
 
 interface InvestorCardProps {
@@ -9,6 +9,10 @@ interface InvestorCardProps {
 }
 
 export const InvestorCard: React.FC<InvestorCardProps> = ({ user }) => {
+  if (!isInvestor(user)) {
+    return null; // Or handle this case as you see fit
+  }
+
   return (
     <div className="user-card">
       <h3>Investor Information</h3>

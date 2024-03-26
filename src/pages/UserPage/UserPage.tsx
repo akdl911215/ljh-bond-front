@@ -34,17 +34,20 @@ const UserPage: React.FC = () => {
     }
 
   return (
+  <div className="parent-container"> {/* This is an example; use your actual parent container */}
     <div className="user-container">
       <h1>User Page</h1>
+      <br />
       <BasicUserInfo user={currentUser} />
       <div className="user-cards-container">
-        {currentUser.userType === 'investor' ? (
-          <InvestorCard user={currentUser} />
+        {currentUser ? (
+          currentUser.userType === 'investor' ? <InvestorCard user={currentUser} /> : <DebtorCard user={currentUser} />
         ) : (
-          <DebtorCard user={currentUser} /> 
+          <div>General User Information</div>
         )}
       </div>
     </div>
+  </div>
   );
 };
 
