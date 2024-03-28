@@ -1,5 +1,5 @@
 .navbar-dark {
-  background-color: black !important; /* Set the navbar background to black */
+  background-color: #0d1117 !important; /* Set the navbar background to black */
   padding: 0.5rem 1rem; /* Adjust the padding to reduce navbar height */
   border-bottom: 2px solid white; /* Add a white border line at the bottom */
   height: 100px;

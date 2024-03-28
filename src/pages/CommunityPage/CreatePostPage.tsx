@@ -44,7 +44,7 @@ const CreatePostPage: React.FC = () => {
             placeholder="내용을 입력하세요"
           />
         </div>
-        <button type="submit">게시하기</button>
+        <button type="submit" className="btn-submit-post">게시하기</button>
       </form>
     </div>
   );

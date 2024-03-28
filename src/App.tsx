@@ -15,6 +15,9 @@ import InvestmentInfoPage from './pages/InvestPage/InvestmentInfoPage';
 import InvestPage from './pages/InvestPage/InvestPage';
 import FinancialKnowledgePage from './pages/InvestPage/FinancialKnowledgePage';
 import YouTubePage from './pages/InvestPage/YouTubePage';
+import RegistrationPage from './pages/LoginPage/RegistrationPage';
+import IDSearchPage from './pages/LoginPage/IDSearchPage';
+import PasswordResetPage from './pages/LoginPage/PasswordResetPage';
 
 
 const Layout = () => {
@@ -36,6 +39,9 @@ const App = () => {
         <Route path='/' element= {<Layout />}>
           <Route index element={<MainPage />} />
           <Route path='login' element= {<LoginPage />} />
+          <Route path='idsearch' element= {<IDSearchPage />} />
+          <Route path='passwordreset' element= {<PasswordResetPage />} />
+          <Route path='register' element= {<RegistrationPage />} />
           <Route path='service' element= {<ServicePage />} />
           <Route path='about' element= {<AboutPage />} />
           <Route path='market' element= {<MarketPage />} />

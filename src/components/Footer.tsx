@@ -3,7 +3,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import './Footer.css'; // CSS 파일을 import 합니다.
 
 const Footer = () => (
-  <footer style={{color: '#fff', backgroundColor: "#000", padding: "20px", marginTop: "20px"}}>
+  <footer style={{color: '#fff', backgroundColor: "#0d1117", padding: "20px", marginTop: "20px"}}>
 
     <div className="footer-container" style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', flexWrap: 'wrap'}}>
       <div className="footer-section">
