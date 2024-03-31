@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  max-width: 400px;
+  max-width: 440px;
   margin: 100px auto;
   background-color: #333;
   color: #fff;
@@ -121,4 +121,41 @@
 
 .login-link:hover {
   text-decoration: underline; /* Add underline on hover for better UX */
+}
+
+.email-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-inputs {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.email-inputs input,
+.email-inputs select {
+  margin: 0 5px;
+  flex-grow: 1; /* Ensures the input field and select box fill the available space */
+}
+
+.email-verify {
+  align-self: flex-start; /* Align the verify button to the start of the flex container */
+}
+
+/* Styling for password instructions */
+.password-instruction {
+  font-size: 0.8rem; /* Adjust the font size as needed */
+  color: #ccc; /* Lighter text color for instructions */
+  margin-bottom: 10px;
+}
+
+.input.error, .select.error {
+  border: 2px solid red;
+}
+
+.validation-message {
+  color: red;
+  margin-top: 5px;
 }

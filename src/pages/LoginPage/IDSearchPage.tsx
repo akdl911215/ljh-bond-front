@@ -27,13 +27,19 @@ const IDSearchPage = () => {
       alert('There was an issue with your request. Please try again later.');
     }
   };
+  const handleEmailVerification = () => {
+    // Logic for email verification request
+    console.log("Email verification requested for:", email);
+    // This is where you'd potentially send a request to your backend to handle email verification
+  };
 
   return (
     <div className="id-search-page">
-      <h2>Find Your ID</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
+      <h2>아이디 찾기</h2>
+      <form onSubmit={handleSubmit} className="id-search-form">
+       <div className="form-group email-input-group">
+          <label htmlFor="email">이메일</label>
+          <div className="email-input-container">
           <input
             type="email"
             id="email"
@@ -41,10 +47,12 @@ const IDSearchPage = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+          <button type="button" onClick={handleEmailVerification} className="email-verify-btn">인증요청</button>
         </div>
-        <button type="submit" className="btn btn-primary">Search ID</button>
-      </form>
-    </div>
+      </div>
+      <button type="submit" className="btn btn-primary">아이디 찾기</button>
+    </form>
+  </div>
   );
 };
 

@@ -58,3 +58,36 @@
     margin: 50px auto;
   }
 }
+
+.id-search-form .form-group {
+  margin-bottom: 20px;
+}
+
+.id-search-form .form-group label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.email-input-group .email-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.email-input-group .email-input-container input {
+  flex-grow: 1; /* Allows input to take up available space */
+  margin-right: 10px; /* Spacing between input and button */
+}
+
+.email-verify-btn {
+  padding: 10px;
+  background-color: #007bff; /* Adjust to match your design */
+  color: white;
+  width: 110px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.email-verify-btn:hover {
+  background-color: #0056b3;
+}
