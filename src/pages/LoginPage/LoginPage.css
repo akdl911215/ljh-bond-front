@@ -30,9 +30,29 @@
   width: 100%;
   margin-bottom: 1rem;
 }
+.form-group input.form-control {
+  background-color: #444; /* Dark background for input fields */
+  color: #fff; /* White text for input fields */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+}
 
+.form-group input.form-control::placeholder {
+  color: #ddd; /* Light grey for placeholder text */
+}
+
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #444; /* Lighter background for input */
+  color: #fff; /* White text */
+}
 .form-control, .form-check-input {
   margin-bottom: 0.5rem;
+
 }
 
 .btn-login {

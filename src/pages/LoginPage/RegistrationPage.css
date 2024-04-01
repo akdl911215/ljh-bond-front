@@ -11,6 +11,17 @@
   box-shadow: 0 8px 16px rgba(0,0,0,0.2);
   border: 1px solid #fff;
 }
+.registration-form .form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.registration-form .email-inputs {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
 .registration-page h2, .sns-registration p {
   text-align: center;
@@ -79,6 +90,38 @@
   padding: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  margin-bottom: 10px; /* Added margin for spacing */
+
+}
+.registration-form .email-inputs input,
+.registration-form .email-inputs select {
+  height: 40px; /* Ensure same height for alignment */
+  padding: 8px 10px; /* Adjust padding as needed */
+  margin-right: 5px; /* Space between input and dropdown */
+  margin-bottom: 5px;
+  margin-left: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #444; /* Or your chosen color */
+  color: #fff;
+}
+/* Custom styling for select dropdown */
+.registration-form .form-group select {
+  cursor: pointer;
+  width: 30%;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #444;
+  height: 40px;
+  color: #fff;
+  -webkit-appearance: none; /* For Safari */
+  -moz-appearance: none; /* For Firefox */
+  appearance: none; /* Remove default arrow from Firefox and Safari */
+  position: relative;
+  background-image: linear-gradient(45deg, transparent 50%, #fff 50%), linear-gradient(135deg, #fff 50%, transparent 50%), linear-gradient(to right, #8b949e, #8b949e);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 5px 5px, 5px 5px, 2.5px 2.5em;
+  background-repeat: no-repeat;
 }
 
 .email-verify {
@@ -125,30 +168,110 @@
 
 .email-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Align items in a row */
+  width: 100%;
+  align-items: center; /* Align items vertically */
 }
 
 .email-inputs {
   display: flex;
+  width: calc(100% - 120px); /* Adjust width to leave space for the verification button */
   align-items: center;
   margin-bottom: 10px; /* Adjust as needed */
 }
 
-.email-inputs input,
+.email-inputs input[type="text"],
 .email-inputs select {
-  margin: 0 5px;
-  flex-grow: 1; /* Ensures the input field and select box fill the available space */
+  flex-grow: 1;
+  margin-right: 10px; /* Space between email input and domain dropdown */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #444;
+  color: #fff;
+}
+.email-inputs select {
+  width: auto; /* Allow the select to shrink based on content */
+  -webkit-appearance: none; /* Remove default styling */
+  -moz-appearance: none;
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="%23ffffff" d="M1016 226l-484 738-484-738h968z"/></svg>') no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
 }
 
 .email-verify {
   align-self: flex-start; /* Align the verify button to the start of the flex container */
 }
+.email-verify-btn {
+  width: 110px; /* Fixed width for the button */
+  height: 40px; /* Match the height of inputs and select */
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
 
+.email-verify-btn:hover {
+  background-color: #0056b3;
+}
 /* Styling for password instructions */
 .password-instruction {
   font-size: 0.8rem; /* Adjust the font size as needed */
   color: #ccc; /* Lighter text color for instructions */
   margin-bottom: 10px;
+}
+.registration-form .form-group select:focus {
+  outline: none;
+  border-color: #5a6268;
+}
+
+/* Custom styling for select when using a background div */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrapper::after {
+  content: '\25BC'; /* Down arrow */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  pointer-events: none;
+  color: #fff;
+  transform: translateY(-50%);
+}
+
+.email-inputs {
+  display: flex;
+  width: 100%;
+}
+
+.email-inputs input,
+.email-inputs .select-wrapper {
+  flex: 1;
+}
+
+.email-inputs input {
+  margin-right: 10px; /* Space between input and select */
+}
+
+/* Ensure email verification button aligns correctly */
+.email-verify {
+  padding: 10px 15px;
+  margin-left: 10px; /* Space between select and button */
+  background-color: #6e7681;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.email-verify:hover {
+  background-color: #5a6268;
 }
 
 .input.error, .select.error {
@@ -158,4 +281,55 @@
 .validation-message {
   color: red;
   margin-top: 5px;
+}
+.email-group {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.email-inputs {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.email-inputs input[type="text"],
+.email-inputs select {
+  flex-grow: 1;
+  margin-right: 8px; /* Adjust based on your layout */
+}
+
+.email-inputs select {
+  width: auto; /* Adjust width as needed, or use flex-grow as above */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Removes default browser styling */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="14" height="12" viewBox="0 0 14 12" xmlns="http://www.w3.org/2000/svg"><polygon points="1 0 7 6 13 0" fill="white"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px 12px;
+}
+
+/* Adjust padding to ensure alignment */
+.email-inputs input[type="text"],
+.email-inputs select {
+  padding: 10px;
+}
+
+/* You might need to adjust the height or padding of the input and select to ensure they align perfectly */
+.email-inputs input[type="text"],
+.email-inputs select {
+  height: 40px; /* Example fixed height */
+}
+
+/* Ensuring the 'email-verify' button aligns with the input fields */
+.email-verify {
+  padding: 10px 20px; /* Adjust padding to match the height of the input/select */
+  margin-left: 10px; /* Adjust margin for spacing */
+}
+
+/* Ensure all children of .email-inputs align in the middle */
+.email-inputs > * {
+  align-self: center;
 }

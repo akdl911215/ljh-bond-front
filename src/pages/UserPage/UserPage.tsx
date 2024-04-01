@@ -1,54 +1,68 @@
-import React from 'react';
-import { User, usersData } from './UserData';
-import { InvestorCard } from './InvestorCard';
-import DebtorCard from './DebtorCard';
+import React, { useState } from 'react';
 import './UserPage.css';
-import BasicUserInfo from './BasicUserInfo';
+import { useNavigate } from 'react-router-dom';
+import { User, initialUser } from './UserData';
 
-// DebtorCard도 비슷한 방식으로 import
+const BasicInformationPage: React.FC = () => {
+  const [user, setUser] = useState<User>(initialUser);
+  const [editMode, setEditMode] = useState<boolean>(false);
+  const navigate = useNavigate();
 
-const UserPage: React.FC = () => {
-    // Attempt to find an investor
-    const investor = usersData.find(user => user.userType === 'investor');
-    // Attempt to find a debtor
-    const debtor = usersData.find(user => user.userType === 'debtor');
-    
-    // Determine the user to display based on the found data
-    let currentUser: User | undefined;
-    let userComponent;
-  
-    if (investor) {
-      currentUser = investor;
-      userComponent = <InvestorCard user={currentUser} />;
-    } else if (debtor) {
-      currentUser = debtor;
-      userComponent = <DebtorCard user={currentUser} />;
-    } else {
-      // Handle the general user case
-      currentUser = undefined; // Or some default general user data
-      userComponent = <div>General User Information</div>;
-    }
-  
-    if (!currentUser) {
-      return <div>User not found</div>;
-    }
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(user); // Here, you'd update the database or state with the new user info
+    setEditMode(false);
+  };
+  const handleGoBack = () => navigate(-1); // Navigate back to the previous page
 
   return (
-  <div className="parent-container"> {/* This is an example; use your actual parent container */}
-    <div className="user-container">
-      <h1>User Page</h1>
-      <br />
-      <BasicUserInfo user={currentUser} />
-      <div className="user-cards-container">
-        {currentUser ? (
-          currentUser.userType === 'investor' ? <InvestorCard user={currentUser} /> : <DebtorCard user={currentUser} />
+    <div className="basic-info-container">
+      <div className="info-card">
+        {editMode ? (
+          <form onSubmit={handleSubmit} className="edit-form">
+            <div className="form-group">
+              <label>Name:</label>
+              <input type="text" name="name" value={user.name || ''} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label>Email:</label>
+              <input type="email" name="email" value={user.email || ''} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label>Phone Number:</label>
+              <input type="text" name="phoneNumber" value={user.phoneNumber || ''} onChange={handleInputChange} />
+            </div>
+            <div className="form-group">
+              <label>Address:</label>
+              <input type="text" name="address" value={user.address || ''} onChange={handleInputChange} />
+            </div>
+            <div className="buttons">
+              <button type="submit" className="save-button">Save</button>
+              <button type="button" onClick={() => setEditMode(false)} className="cancel-button">Cancel</button>
+              <button type="button" onClick={handleGoBack} className="back-button">Go Back</button>
+            </div>
+          </form>
         ) : (
-          <div>General User Information</div>
+          <>
+            <h2>{user.name}님</h2>
+            <br />
+            <p><strong>Email:</strong> {user.email}</p>
+            <p><strong>Phone Number:</strong> {user.phoneNumber}</p>
+            <p><strong>Address:</strong> {user.address}</p>
+            <div className="buttons">
+              <button onClick={() => setEditMode(true)} className="edit-info-btn">Edit Information</button>
+              <button type="button" onClick={handleGoBack} className="back-button">Go Back</button>
+            </div>          </>
         )}
+        <button onClick={() => navigate('/userassets')} className="view-assets-btn">View Assets</button>
       </div>
     </div>
-  </div>
   );
 };
 
-export default UserPage;
+export default BasicInformationPage;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, isDebtor, isInvestor } from './UserData';
+import { User, isDebtor, initialUser,isInvestor } from './UserData';
 
 interface BasicUserInfoProps {
   user: User;

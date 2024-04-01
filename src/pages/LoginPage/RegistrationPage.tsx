@@ -91,30 +91,30 @@ const RegistrationPage = () => {
               required 
             />
             <span>@</span>
-            {!showCustomEmailInput ? (
-              <select 
-                name="emailDomain" 
-                onChange={handleChange} 
-                value={formData.emailDomain} 
-                className={isInputValid.emailDomain ? "" : "error"} 
-                required>
-                <option value="">선택해주세요</option>
-                {emailDomains.map(domain => (
-                  <option key={domain} value={domain}>{domain}</option>
-                ))}
-                <option value="custom">직접 입력</option>
-              </select>
-            ) : (
-              <input
-                type="text"
-                name="emailDomain"
-                className={!isInputValid.emailDomain ? "error" : ""}
-                placeholder="이메일 도메인"
-                value={formData.emailDomain}
-                onChange={handleChange}
-                required
-              />
-            )}
+            {showCustomEmailInput ? (
+            <input
+              type="text"
+              name="emailDomain"
+              className={!isInputValid.emailDomain ? "error" : ""}
+              placeholder="이메일 도메인"
+              value={formData.emailDomain}
+              onChange={handleChange}
+              required
+            />
+          ) : (
+            <select 
+              name="emailDomain" 
+              onChange={handleChange} 
+              value={formData.emailDomain} 
+              className={isInputValid.emailDomain ? "" : "error"} 
+              required>
+              <option value="">선택해주세요</option>
+              {emailDomains.map(domain => (
+                <option key={domain} value={domain}>{domain}</option>
+              ))}
+              <option value="custom">직접 입력</option>
+            </select>
+          )}
           </div>
           <button type="button" className="email-verify">이메일 인증하기</button>
         </div>

@@ -18,6 +18,7 @@ import YouTubePage from './pages/InvestPage/YouTubePage';
 import RegistrationPage from './pages/LoginPage/RegistrationPage';
 import IDSearchPage from './pages/LoginPage/IDSearchPage';
 import PasswordResetPage from './pages/LoginPage/PasswordResetPage';
+import UserAssetsPage from './pages/UserPage/UserAssetsPage';
 
 
 const Layout = () => {
@@ -46,6 +47,7 @@ const App = () => {
           <Route path='about' element= {<AboutPage />} />
           <Route path='market' element= {<MarketPage />} />
           <Route path='user' element= {<UserPage />} />
+          <Route path='/userassets' element= {<UserAssetsPage />} />
           <Route path='community' element= {<CommunityPage />} />
           <Route path="/create-post" element={<CreatePostPage />} />
           <Route path="/post/:id" element={<PostDetailPage />} /> 

@@ -43,6 +43,7 @@ const IDSearchPage = () => {
           <input
             type="email"
             id="email"
+            placeholder='이메일'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required

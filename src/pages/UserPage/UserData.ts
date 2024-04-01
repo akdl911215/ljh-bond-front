@@ -14,6 +14,10 @@ export function isDebtor(user: User): user is Debtor {
 
 interface BaseUser {
   userType: 'investor' | 'debtor' | 'general';
+  name: string;  // Adding name
+  email?: string;  // Email can be optional
+  phoneNumber?: string;  // Phone number can be optional
+  address?: string;  // Address can be optional
 }
 
 export interface Investor extends BaseUser {
@@ -43,11 +47,18 @@ interface GeneralUser extends BaseUser {
 
 export type User = Investor | Debtor | GeneralUser;
 
+export const initialUser: User = {
+  userType: 'general',
+  name: "General User Name",
+  // Add other fields as necessary
+};
+
 // Example data
 export const usersData: User[] = [
   
   {
     userType: 'investor',
+    name: "Investor Name",
     investments: [{ type: 'Stocks', percentage: 50, count: 10 }],
     annualReturn: 5,
     liquidAssets: 10000,
@@ -66,6 +77,7 @@ export const usersData: User[] = [
   },
   {
     userType: 'general',
+    name: "General User Name",
     // Populate with general user fields if necessary
   }
 ];
