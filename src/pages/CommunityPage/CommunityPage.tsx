@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CommunityPage.css';
+import { useInfiniteQuery } from 'react-query';
 
 interface Post {
   id: number;
@@ -9,70 +10,60 @@ interface Post {
   date: string;
   views: number;
 }
-const CommunityPage: React.FC = () => {
-  const samplePosts: Post[] = [
-    // Assuming you have more than 10 posts for demonstration
-    { id: 1, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
-    { id: 2, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
-    { id: 3, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
-    { id: 4, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
-    { id: 5, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
-    { id: 6, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
-    { id: 7, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
-    { id: 8, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
-    { id: 9, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
-    { id: 10, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
-    { id: 11, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
-    { id: 12, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
 
-    // Add more dummy posts...
-  ];
+async function fetchPosts({ pageParam = 0 }) {
+  // 여기에 API 호출 로직 구현
+  // 예: return fetch(`https://example.com/api/posts?cursor=${pageParam}`).then(res => res.json());
+  // 임시 데이터 반환
+  return {
+    posts: [
+      { id: 1, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
+      { id: 2, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
+      { id: 3, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
+      { id: 4, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
+      { id: 5, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
+      { id: 6, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
+      { id: 7, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
+      { id: 8, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
+      { id: 9, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
+      { id: 10, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },
+      { id: 11, title: "First Post", author: "John Doe", date: "2023-03-10", views: 150 },
+      { id: 12, title: "Second Post", author: "Jane Doe", date: "2023-03-11", views: 100 },      // 추가 게시물...
+    ],
+    nextCursor: pageParam + 1, // 다음 커서 값. 실제 데이터에 따라 조정 필요
+  };
+}
 
-  const [posts, setPosts] = useState<Post[]>(samplePosts);
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
+const CommunityPage = () => {
   const navigate = useNavigate();
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(posts.length / postsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery('posts', fetchPosts, {
+    getNextPageParam: (lastPage) => lastPage.nextCursor,
+  });
+  const handleCreatePost = () => {
+    navigate('/create-post');
+  };
 
   return (
     <div className="community-page">
       <h2>커뮤니티</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>조회</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentPosts.map(post => (
-            <tr key={post.id} onClick={() => navigate(`/post/${post.id}`)}>
-              <td>{post.title}</td>
-              <td>{post.author}</td>
-              <td>{post.date}</td>
-              <td>{post.views}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="pagination">
-        {pageNumbers.map(number => (
-          <button key={number} className={currentPage === number ? 'active' : ''} onClick={() => setCurrentPage(number)}>
-            {number}
-          </button>
-        ))}
+      <div className="write-post-button-container">
+        <button className="write-post-button" onClick={handleCreatePost}>작성하기</button>
       </div>
-      <button onClick={() => navigate('/create-post')} className="write-btn">작성하기</button>
+      {data?.pages.map((page, index) => (
+        <React.Fragment key={index}>
+          {page.posts.map((post: Post) => (
+            <div key={post.id} className="post-item" onClick={() => navigate(`/post/${post.id}`)}>
+              <h3>{post.title}</h3>
+              <p>{`${post.author} - ${post.date} - Views: ${post.views}`}</p>
+            </div>
+          ))}
+        </React.Fragment>
+      ))}
+      <div className="load-more-button-container">
+        <button onClick={() => fetchNextPage()} disabled={!hasNextPage || isFetchingNextPage}>
+          {isFetchingNextPage ? 'Loading more...' : hasNextPage ? 'Load More' : 'Nothing more to load'}
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+// src>pages>LoginPage>LoginPage.tsx
 import React, { useState } from 'react';
 import './LoginPage.css'; 
 import { FaFacebook } from "react-icons/fa";
@@ -57,15 +58,9 @@ const LoginPage = () => {
             </div>
             {/* Submit Button */}
             <div className="form-group text-center">
-              <button className="btn btn-login btn-login-primary" type="submit">Login1</button>
-              <button className="btn btn-login btn-login-blue" type="submit">Login2</button>
+              <button className="btn btn-login btn-login-refined" type="submit">Refined Login</button>
               <button className="btn btn-login btn-login-gray" type="submit">Login3</button>
               <button className="btn btn-login btn-login-purple" type="submit">Login4</button>
-              <button className="btn btn-login btn-login-red" type="submit">Login5</button>
-              <button className="btn btn-login btn-login-secondary" type="submit">Secondary6</button>
-              <button className="btn btn-login btn-login-info" type="submit">Info7</button>
-              <button className="btn btn-login btn-login-warning" type="submit">Warning8</button>
-              <button className="btn btn-login btn-login-danger" type="submit">Danger9</button>
             </div>
             {/* SNS Signup Buttons */}
             <p>SNS계정으로 간편 로그인/회원가입</p>

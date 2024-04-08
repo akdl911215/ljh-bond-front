@@ -4,72 +4,54 @@
   padding: 20px;
 }
 
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  font-weight: bold;
-}
-
-
-tbody tr:hover {
-  text-decoration: underline; /* Add underline on hover for better UX */
-}
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination button, .write-btn {
-  margin: 0 5px;
-  padding: 5px 10px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.post-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd; /* Adds a line to separate posts */
   cursor: pointer;
 }
-
-.pagination button.active {
-  font-weight: bold;
-  background-color: #007bff;
-  color: white;
-}
-
-.pagination button:not(.active):hover {
-  background-color: #0056b3;
-  color: white;
-
-}
-
-.write-btn {
-  display: block;
+.write-post-button-container,
+.load-more-button-container {
+  text-align: right;
   margin-top: 20px;
+}
+.post-item:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+button {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.write-btn:hover {
+button:hover {
   background-color: #0056b3;
 }
+.load-more-button-container button {
+  display: inline-block; /* Adjust as needed */
+  width: 100%;
+}
+.write-post-button-container {
+  display: flex;
+  justify-content: flex-end; /* Aligns button to the right */
+  margin-top: 20px;
+}
 
-@media (max-width: 768px) {
-  th, td {
-    padding: 4px;
-    font-size: 14px;
-  }
+.write-post-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.write-post-button:hover {
+  background-color: #0056b3;
 }

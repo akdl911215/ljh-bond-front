@@ -1,3 +1,4 @@
+/* src>pages>LoginPage>LoginPage.css */
 .login-page {
   height: 100vh;
   display: flex;
@@ -141,6 +142,22 @@
   }
 }
 
+.btn-login-mix {
+  background: linear-gradient(145deg, #6e7681, #a371f7); /* Mix of gray and purple */
+  color: #ffffff; /* White text for contrast */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-login-mix:hover {
+  background: linear-gradient(145deg, #5a6268, #b084f4); /* A lighter mix for hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
 .btn-login-primary {
   background-color: #238636;
   color: #ffffff; /* White text for better contrast */
@@ -156,14 +173,6 @@
 }
 .btn-login-blue:hover {
   background-color: #79c0ff;
-  color: #ffffff;
-}
-.btn-login-gray {
-  background-color: #8b949e;
-  color: #ffffff;
-}
-.btn-login-gray:hover {
-  background-color: #6e7681;
   color: #ffffff;
 }
 
@@ -194,44 +203,31 @@
   transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Primary GitHub Button Style */
-.btn-login-primary {
-  background-color: #238636; /* Dark green */
-  color: white;
-}
-.btn-login-primary:hover {
-  background-color: #2ea043; /* Lighter green */
-}
 
 /* Additional GitHub Styled Buttons */
-.btn-login-secondary {
-  background-color: #8b949e; /* Gray */
-  color: white;
+
+.btn-login-gray {
+  background-color: #8b949e;
+  color: #ffffff;
 }
-.btn-login-secondary:hover {
-  background-color: #6e7681; /* Darker gray */
+.btn-login-gray:hover {
+  background-color: #6e7681;
+  color: #ffffff;
 }
 
-.btn-login-info {
-  background-color: #58a6ff; /* Bright blue */
-  color: white;
-}
-.btn-login-info:hover {
-  background-color: #79c0ff; /* Lighter blue */
+
+.btn-login-refined {
+  background-color: #746D85; /* Solid blend of gray and purple */
+  color: #ffffff; /* White text for contrast */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
-.btn-login-warning {
-  background-color: #d29922; /* Orange */
-  color: white;
-}
-.btn-login-warning:hover {
-  background-color: #e3b341; /* Lighter orange */
-}
-
-.btn-login-danger {
-  background-color: #f85149; /* Red */
-  color: white;
-}
-.btn-login-danger:hover {
-  background-color: #ff7b72; /* Lighter red */
+.btn-login-refined:hover {
+  background-color: #827992; /* Slightly lighter on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
 }

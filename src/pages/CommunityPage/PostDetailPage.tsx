@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './PostDetailPage.css';
-
-
-interface Post {
-  id: number;
-  title: string;
-  author: string;
-  date: string;
-  views: number;
-  content: string;
-}
+import { Post } from '../../components/types';
 
 const DUMMY_POSTS: Post[] = [
   { id: 1, title: 'First Post', author: 'John Doe', date: '2023-03-10', views: 150, content: 'This is the first post content.' },
