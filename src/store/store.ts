@@ -1,11 +1,14 @@
 // src/store/store.ts
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import postReducer from './postSlice';
-// Import other reducers
+
+const rootReducer = combineReducers({
+  post: postReducer,
+  // 다른 리듀서들도 여기에 추가...
+});
+
+export type RootState = ReturnType<typeof rootReducer>;
 
 export const store = configureStore({
-  reducer: {
-    post: postReducer,
-    // other reducers
-  },
+  reducer: rootReducer,
 });

@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
+//src>pages>CommunityPage>PostDetailPage.tsx
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCurrentPost, updatePost, deletePost, resetPost } from '../../store/postSlice';
+import { RootState } from '../../store/store'; // RootState 타입을 정의한 경로를 확인해주세요.
 import './PostDetailPage.css';
 import { Post } from '../../components/types';
+import { RiArrowLeftLine } from 'react-icons/ri';
 
 const DUMMY_POSTS: Post[] = [
   { id: 1, title: 'First Post', author: 'John Doe', date: '2023-03-10', views: 150, content: 'This is the first post content.' },
@@ -11,38 +16,49 @@ const DUMMY_POSTS: Post[] = [
 
 const PostDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [post, setPost] = useState<Post | undefined>();
-  const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [editedTitle, setEditedTitle] = useState<string>('');
-  const [editedContent, setEditedContent] = useState<string>('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const post = useSelector((state: RootState) => state.post.currentPost);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [editedTitle, setEditedTitle] = useState<string>(post?.title || '');
+  const [editedContent, setEditedContent] = useState<string>(post?.content || '');
 
   useEffect(() => {
     const foundPost = DUMMY_POSTS.find(post => post.id.toString() === id);
     if (foundPost) {
-      setPost(foundPost);
-      setEditedTitle(foundPost.title);
-      setEditedContent(foundPost.content);
+      dispatch(setCurrentPost(foundPost));
     }
   }, [id]);
 
   const handleEdit = () => setIsEditing(!isEditing);
 
   const handleSave = () => {
-    console.log({ id: post?.id, title: editedTitle, content: editedContent });
-    setIsEditing(false);
-    // Here, you'd typically update the post in your backend or state management system
+    if (post) {
+      dispatch(updatePost({ title: editedTitle, content: editedContent }));
+      setIsEditing(false);
+    }
   };
 
+  // resetPost 사용 예시
+  const handleCancelEdit = () => {
+    // 포스트 편집을 취소하고 초기 상태로 돌아갑니다.
+    dispatch(resetPost());
+    setIsEditing(false);
+  };
   const handleDelete = () => {
-    console.log(`Deleting post with id: ${id}`);
-    navigate('/community'); // Redirect to the community listing
+    if (post) {
+      dispatch(deletePost(post.id));
+      navigate('/community');
+    }
   };
 
   const handleGoBack = () => navigate(-1); // Navigate back to the previous page
 
   return (
     <div className="post-detail-page">
+      <div className="post-header">
+        <button onClick={handleGoBack} className="back-button"><RiArrowLeftLine /></button>
+      </div>
       {post ? (
         <>
           {isEditing ? (
@@ -74,18 +90,20 @@ const PostDetailPage: React.FC = () => {
               <div>{post.content}</div>
             </>
           )}
-          <div className="buttons">
-            {isEditing ? (
-              <>
-                <button onClick={handleSave} className="save-button">Save</button>
-                <button onClick={() => setIsEditing(false)} className="cancel-button">Cancel</button>
-              </>
-            ) : (
-              <button onClick={handleEdit} className="edit-button">Edit</button>
-            )}
-            <button onClick={handleDelete} className="delete-button">Delete</button>
-            <button onClick={handleGoBack} className="back-button">Go Back</button>
-          </div>
+            <div className="buttons">
+              {isEditing ? (
+                <>
+                  <button onClick={handleSave} className="save-button">Save</button>
+                  <button onClick={handleCancelEdit} className="cancel-button">Cancel</button> {/* 수정됨 */}
+
+                </>
+              ) : (
+                <>
+                  <button onClick={handleEdit} className="edit-button">Edit</button>
+                  <button onClick={handleDelete} className="delete-button">Delete</button>
+                </>
+              )}
+            </div>
         </>
       ) : (
         <p>Post not found.</p>

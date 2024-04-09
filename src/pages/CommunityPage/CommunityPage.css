@@ -1,7 +1,28 @@
+/* CommunityPage.css */
 .community-page {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.categories-container button {
+  padding: 10px 20px;
+  background-color: black; /* Changed to black */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px; /* Spacing between buttons */
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.categories-container button.selected {
+  background-color: #444; /* Slightly lighter black for selected category */
+}
+
+.categories-container button:hover {
+  background-color: #333; /* Dark gray on hover */
 }
 
 .post-item {
@@ -10,48 +31,36 @@
   border-bottom: 1px solid #ddd; /* Adds a line to separate posts */
   cursor: pointer;
 }
-.write-post-button-container,
-.load-more-button-container {
-  text-align: right;
+
+.post-item:hover {
+  text-decoration: underline;
+}
+
+.load-more-button-container{
+  text-align: center; /* Center align the buttons */
   margin-top: 20px;
 }
-.post-item:hover {
-  text-decoration: underline; /* Underline on hover */
+
+.write-post-button-container {
+  text-align: right;
 }
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
-.load-more-button-container button {
-  display: inline-block; /* Adjust as needed */
-  width: 100%;
-}
-.write-post-button-container {
-  display: flex;
-  justify-content: flex-end; /* Aligns button to the right */
-  margin-top: 20px;
-}
-
+.load-more-button-container button,
 .write-post-button {
-  padding: 10px 20px;
-  background-color: #007bff;
+  background-color: black; /* Consistent with category buttons */
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
 }
 
+.load-more-button-container button:hover,
 .write-post-button:hover {
-  background-color: #0056b3;
+  background-color: #333; /* Dark gray on hover */
 }
+
+/* Removes unnecessary CSS and adjusts styles to align with the changes */

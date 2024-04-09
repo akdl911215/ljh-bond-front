@@ -37,16 +37,19 @@
 .delete-button { background-color: #dc3545; }
 .cancel-button { background-color: #ffc107; } /* Made the color value explicit */
 .back-button {
-  background-color: #007bff;
+  background-color: #0d1117;
   display: inline-block;
+  color: #fff;
   padding: 10px 20px;
-  margin-top: 20px;
-  border: none;
+  margin: 20px 0;
+  border: 2px solid #ccc; /* Contrast border */
   border-radius: 5px;
+  font-size: 24px;
+
 }
 
 .buttons button:hover { opacity: 0.8; }
-.back-button:hover { background-color: #0056b3; }
+.back-button:hover { background-color: #0d1117; }
 
 .edit-mode {
   display: flex;

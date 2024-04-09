@@ -214,6 +214,14 @@
   background-color: #6e7681;
   color: #ffffff;
 }
+.btn-login-black {
+  background-color: #070707;
+  color: #ffffff;
+}
+.btn-login-black:hover {
+  background-color: #6e7681;
+  color: #ffffff;
+}
 
 
 .btn-login-refined {

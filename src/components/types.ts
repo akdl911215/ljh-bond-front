@@ -6,4 +6,5 @@ export interface Post {
   date: string;
   views: number;
   content: string;
+  category?: string;
 }

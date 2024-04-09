@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './UserPage.css';
 import { useNavigate } from 'react-router-dom';
 import { User, initialUser } from './UserData';
+import { RiArrowLeftLine } from 'react-icons/ri';
 
 const BasicInformationPage: React.FC = () => {
   const [user, setUser] = useState<User>(initialUser);
@@ -23,6 +24,9 @@ const BasicInformationPage: React.FC = () => {
   return (
     <div className="basic-info-container">
       <div className="info-card">
+      <div className="post-header">
+        <button onClick={handleGoBack} className="back-button"><RiArrowLeftLine /></button>
+      </div>
         {editMode ? (
           <form onSubmit={handleSubmit} className="edit-form">
             <div className="form-group">
@@ -56,8 +60,8 @@ const BasicInformationPage: React.FC = () => {
             <p><strong>Address:</strong> {user.address}</p>
             <div className="buttons">
               <button onClick={() => setEditMode(true)} className="edit-info-btn">Edit Information</button>
-              <button type="button" onClick={handleGoBack} className="back-button">Go Back</button>
-            </div>          </>
+            </div>          
+          </>
         )}
         <button onClick={() => navigate('/userassets')} className="view-assets-btn">View Assets</button>
       </div>

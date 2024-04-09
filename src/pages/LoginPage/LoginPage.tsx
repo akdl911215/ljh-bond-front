@@ -61,6 +61,7 @@ const LoginPage = () => {
               <button className="btn btn-login btn-login-refined" type="submit">Refined Login</button>
               <button className="btn btn-login btn-login-gray" type="submit">Login3</button>
               <button className="btn btn-login btn-login-purple" type="submit">Login4</button>
+              <button className="btn btn-login btn-login-black" type="submit">Login5</button>
             </div>
             {/* SNS Signup Buttons */}
             <p>SNS계정으로 간편 로그인/회원가입</p>
