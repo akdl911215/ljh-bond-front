@@ -142,57 +142,7 @@
   }
 }
 
-.btn-login-mix {
-  background: linear-gradient(145deg, #6e7681, #a371f7); /* Mix of gray and purple */
-  color: #ffffff; /* White text for contrast */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
 
-.btn-login-mix:hover {
-  background: linear-gradient(145deg, #5a6268, #b084f4); /* A lighter mix for hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-}
-
-.btn-login-primary {
-  background-color: #238636;
-  color: #ffffff; /* White text for better contrast */
-}
-.btn-login-primary:hover {
-  background-color: #2ea043;
-  color: #ffffff;
-}
-
-.btn-login-blue {
-  background-color: #58a6ff;
-  color: #ffffff;
-}
-.btn-login-blue:hover {
-  background-color: #79c0ff;
-  color: #ffffff;
-}
-
-.btn-login-purple {
-  background-color: #a371f7;
-  color: #ffffff;
-}
-.btn-login-purple:hover {
-  background-color: #b084f4;
-  color: #ffffff;
-}
-
-.btn-login-red {
-  background-color: #f85149;
-  color: #ffffff;
-}
-.btn-login-red:hover {
-  background-color: #ff7b72;
-  color: #ffffff;
-}
 .btn-login {
   width: 100%;
   padding: 10px 20px;
@@ -215,7 +165,7 @@
   color: #ffffff;
 }
 .btn-login-black {
-  background-color: #070707;
+  background-color: #8b949e;
   color: #ffffff;
 }
 .btn-login-black:hover {

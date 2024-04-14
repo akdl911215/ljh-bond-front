@@ -1,66 +1,96 @@
-/* CommunityPage.css */
 .community-page {
   max-width: 800px;
-  margin: 0 auto;
+  margin: auto;
   padding: 20px;
 }
 
+.categories-container {
+  display: flex;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  overflow-y: hidden; /* Disables vertical scrolling */
+  white-space: nowrap; /* Keeps buttons in a single line */
+  scrollbar-width: thin; /* Thins the scrollbar for aesthetics (Firefox) */
+  scrollbar-color: #888 #eee; /* Styles the scrollbar (Firefox) */
+  -webkit-overflow-scrolling: touch; /* Improves scrolling on touch devices (iOS WebKit) */
+}
+
+
+/* Scrollbar customization for Webkit browsers */
+.categories-container::-webkit-scrollbar {
+  height: 4px;
+}
+
+.categories-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.categories-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.categories-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .categories-container button {
+  flex: 0 0 auto; /* Prevents stretching */
+  margin-right: 10px; /* Space between buttons */
   padding: 10px 20px;
-  background-color: black; /* Changed to black */
+  background-color: black;
   color: white;
   border: none;
   border-radius: 5px;
-  margin-right: 10px; /* Spacing between buttons */
-  margin-top: 20px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s;
 }
 
 .categories-container button.selected {
-  background-color: #444; /* Slightly lighter black for selected category */
+  background-color: #444; /* Darker shade for selected button */
 }
 
 .categories-container button:hover {
-  background-color: #333; /* Dark gray on hover */
+  background-color: #333; /* Hover effect for buttons */
 }
 
+/* Styles for the post items displayed */
 .post-item {
   padding: 10px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #ddd; /* Adds a line to separate posts */
+  border-bottom: 1px solid #ddd; /* Light gray line to separate posts */
   cursor: pointer;
 }
 
 .post-item:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Underline on hover for better visual feedback */
 }
 
-.load-more-button-container{
-  text-align: center; /* Center align the buttons */
+/* Container for load more and create post buttons */
+.load-more-button-container,
+.write-post-button-container {
+  text-align: right; /* Aligns buttons to the right */
   margin-top: 20px;
 }
 
-.write-post-button-container {
-  text-align: right;
-}
-
+/* Button styles for actions */
 button {
   padding: 10px 20px;
+  background-color: black; /* Uniform button color */
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.load-more-button-container button,
-.write-post-button {
-  background-color: black; /* Consistent with category buttons */
-  color: white;
-}
-
-.load-more-button-container button:hover,
-.write-post-button:hover {
+button:hover {
   background-color: #333; /* Dark gray on hover */
 }
 
-/* Removes unnecessary CSS and adjusts styles to align with the changes */
+@media (max-width: 415px) {
+  .categories-container {
+    min-width: 100%; /* Force the container to be at least as wide as the viewport */
+  }
+
+  .categories-container button {
+    padding: 10px; /* Reduce padding on smaller screens to save space */
+  }
+}

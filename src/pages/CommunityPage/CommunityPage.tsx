@@ -28,25 +28,33 @@ async function fetchPosts({ pageParam = 0 }) {
   };
 }
 
-const categories = ['All', 'Technology', 'Life', 'Music'];
+const categories = ['All', 'Technology', 'Life', 'Music','Sports','Water','eco'];
 
 const CommunityPage: React.FC = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('All'); // 선택된 카테고리 상태 관리
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery(
-    ['posts', selectedCategory], // queryKey에 selectedCategory를 포함시킴
-    fetchPosts,
-    { getNextPageParam: (lastPage) => lastPage.nextCursor }
-  );
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = useInfiniteQuery(['posts', selectedCategory], fetchPosts, {
+    getNextPageParam: (lastPage) => lastPage.nextCursor
+  });
 
   const handleCreatePost = () => {
     navigate('/create-post');
   };
 
+  const handleWheel = (e: React.WheelEvent) => {
+    const container = e.currentTarget;
+    const containerScrollPosition = container.scrollLeft;
+    container.scrollTo({
+      top: 0,
+      left: containerScrollPosition + e.deltaY,
+      behavior: 'smooth' // Corrected spelling here
+    });
+  };
+
   return (
     <div className="community-page">
       <h2>커뮤니티</h2>
-      <div className="categories-container">
+      <div className="categories-container" onWheel={handleWheel}>
         {categories.map(category => (
           <button
             key={category}
