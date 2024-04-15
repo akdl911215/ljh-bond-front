@@ -1,5 +1,5 @@
 //src>pages>CommunityPage>CommunityPage.tsx
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './CommunityPage.css';
 import { useInfiniteQuery } from 'react-query';
@@ -42,14 +42,25 @@ const CommunityPage: React.FC = () => {
   };
 
   const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault(); // Prevents vertical scrolling when wheel event is triggered
     const container = e.currentTarget;
-    const containerScrollPosition = container.scrollLeft;
-    container.scrollTo({
-      top: 0,
-      left: containerScrollPosition + e.deltaY,
-      behavior: 'smooth' // Corrected spelling here
-    });
+    const scrollAmount = e.deltaY; // You can adjust the sensitivity
+    container.scrollLeft += scrollAmount; // Moves the scrollbar horizontally
   };
+
+  const observer = useRef<IntersectionObserver | null>(null);
+  
+  const lastPostRef = useCallback((node: Element | null) => {
+    if (isFetchingNextPage) return;
+    if (observer.current) observer.current.disconnect();
+    
+    observer.current = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && hasNextPage) {
+        fetchNextPage();
+      }
+    });
+    if (node) observer.current.observe(node);
+  }, [isFetchingNextPage, fetchNextPage, hasNextPage]);
 
   return (
     <div className="community-page">
@@ -71,11 +82,16 @@ const CommunityPage: React.FC = () => {
 
       {data?.pages.map((page, index) => (
         <React.Fragment key={index}>
-          {page.posts.map((post: Post) => (
-            <div key={post.id} className="post-item" onClick={() => navigate(`/post/${post.id}`)}>
-              <h3>{post.title}</h3>
-              <p>{`${post.author} - ${post.date} - Views: ${post.views} - Category: ${post.category}`}</p>
-            </div>
+          {page.posts.map((post: Post, idx) => (
+            <div
+              ref={idx === page.posts.length - 1 ? lastPostRef : null}
+              key={post.id}
+              className="post-item"
+              onClick={() => navigate(`/post/${post.id}`)}
+            >
+            <h3>{post.title}</h3>
+            <p>{`${post.author} - ${post.date} - Views: ${post.views} - Category: ${post.category}`}</p>
+          </div>
           ))}
         </React.Fragment>
       ))}

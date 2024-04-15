@@ -30,8 +30,8 @@
   align-items: center;
   width: 100%; /* 전체 너비를 사용 */
   margin: 10px;
-  min-width: 500px;
-  padding: 20px;
+  min-width: 250px; /* Minimum width to ensure content fits */
+  padding: 10px; 
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -39,6 +39,17 @@
   color: #fff;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  overflow: hidden; /* Add this to prevent content from overflowing */
+  text-overflow: ellipsis;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .user-card {
+    margin: 5px;
+    padding: 10px;
+    font-size: 0.8rem;   
+  }
 }
 
 @media (min-width: 768px) {
@@ -57,10 +68,3 @@
   }
 }
 
-@media (max-width: 768px) {
-  .user-card {
-    padding: 15px; /* 패딩 조정 */
-    margin: 5px;
-    font-size: 0.8rem; /* 더 작은 화면에서 글꼴 크기 조정 */
-  }
-}

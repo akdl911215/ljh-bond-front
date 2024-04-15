@@ -13,16 +13,16 @@ export const InvestorCard: React.FC<InvestorCardProps> = ({ user }) => {
   }
 
   return (
-    <CardLayout title="Investor Information">
-      <>
-        {user.investments.map((investment, index) => (
-          <p key={index}>{`${investment.type}: ${investment.percentage}% (${investment.count} units)`}</p>
-        ))}
-        <PieChartComponent investments={user.investments} />
-      </>
-      <p>Annual Return: {user.annualReturn}%</p>
-      <p>Liquid Assets: ${user.liquidAssets}</p>
-    </CardLayout>
+    <CardLayout title="Investor Information" className="card-layout">
+    <div className="card-content">
+      {user.investments.map((investment, index) => (
+        <p key={index}>{`${investment.type}: ${investment.percentage}% (${investment.count} units)`}</p>
+      ))}
+      <PieChartComponent investments={user.investments} />
+        <p>Annual Return: {user.annualReturn}%</p>
+        <p>Liquid Assets: ${user.liquidAssets.toLocaleString()}</p>
+    </div>
+  </CardLayout>
   );
 };
 

@@ -12,6 +12,7 @@
   scrollbar-width: thin; /* Thins the scrollbar for aesthetics (Firefox) */
   scrollbar-color: #888 #eee; /* Styles the scrollbar (Firefox) */
   -webkit-overflow-scrolling: touch; /* Improves scrolling on touch devices (iOS WebKit) */
+  margin-top: 20px;
 }
 
 
