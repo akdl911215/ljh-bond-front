@@ -46,7 +46,6 @@
 
 @media (max-width: 768px) {
   .user-card {
-    margin: 5px;
     padding: 10px;
     font-size: 0.8rem;   
   }
@@ -68,3 +67,16 @@
   }
 }
 
+@media (max-width: 414px) { /* Specific adjustments for 412 x 915 screens */
+  .user-card {
+    padding: 5px;
+    font-size: 0.75rem; /* Smaller font size to ensure content fits */
+    align-items: stretch; /* Ensures elements within are not squeezed */
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align content to prevent it from being cut off */
+  }
+}
