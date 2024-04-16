@@ -63,7 +63,7 @@
 
 @media (min-width: 1024px) {
   .user-card {
-    width: calc(33.333% - 20px); /* Three cards per row on larger screens */
+    width: calc(33.333% - 20px); 
   }
 }
 
